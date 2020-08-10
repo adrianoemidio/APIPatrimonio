@@ -35,6 +35,7 @@ namespace APIPatrimonio.DAL
         }
         public void DeleteMarca(long Id)
         {
+            this.conexao.Execute(@"DELETE FROM Patrimonios WHERE @GMarca = MarcaId", new { GMarca = Id});
             this.conexao.Execute(@"DELETE FROM Marcas WHERE @GMarca = MarcaId", new { GMarca = Id});
         }
         public void UpdateMarca(Marca NewMarca)
